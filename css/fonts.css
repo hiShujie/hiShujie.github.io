@@ -1,0 +1,13 @@
+/* 丁列宋克体字体定义 */
+@font-face {
+  font-family: 'DingLieSongKeTi';
+  src: url('../fonts/DingLieSongKeTi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 字体回退方案 */
+.font-dinglie {
+  font-family: 'DingLieSongKeTi', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+} 
