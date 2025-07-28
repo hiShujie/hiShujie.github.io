@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> | Shujie Zhang</title>
+  
+  
+  <meta name="description" content="">
+  <meta name="author" content="Shujie Zhang">
+  <meta name="keywords" content="Shujie Zhang, embodied AI, robotics, research, Tsinghua University">
+  
+  
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/styles.css">
+  
+  <link rel="stylesheet" href="../../styles.min.9a50b3d87d2ad6c64a1cfea30664f135c9f2ca7f3b06f2ddd1593d43565fa2b0.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+  integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  
+  
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar-custom');
+    
+    
+    document.body.classList.add('fade-in');
+    
+    
+    const cardList = document.querySelector('.card-article-list');
+    if (cardList) {
+      cardList.classList.add('fade-in-delay-1');
+    }
+    
+    const navbarElement = document.querySelector('.navbar-custom');
+    if (navbarElement) {
+      navbarElement.classList.add('fade-in-delay-2');
+    }
+    
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    
+    const links = document.querySelectorAll('a[href^="/"]:not([href*="#"])');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.closest('.navbar-custom')) {
+          document.body.classList.add('fade-out');
+        }
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <nav class="navbar-custom">
+  <div class="navbar-container">
+    <ul class="navbar-menu">
+      <li><a href="../../">Index</a></li>
+      <li><a href="../../paper-blog/">Paper Blog</a></li>
+      <li><a href="../../research-diary/">Research Diary</a></li>
+      <li><a href="../../Gallery/">Gallery</a></li>
+      <li><a href="../../about/">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
+  <main class="card-article-list">
+    <header class="diary-header">
+      <h1 class="diary-title"></h1>
+      <div class="diary-meta">
+        <time class="diary-date">0001-01-01</time>
+        
+          <span class="lastmod"> · Last updated: 2025-07-28</span>
+        
+      </div>
+    </header>
+      
+      
+    
+        
+    
+  </main>
+  </div>
+
+  
+<section class="section py-0">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/natarajmb">Nataraj Basappa</a> 2025</p>
+  </div>
+</section>
+
+</body>
+</html>
