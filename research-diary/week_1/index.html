@@ -3,10 +3,10 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>week 1 summary | Shujie Zhang</title>
+  <title>Week_1 | Shujie Zhang</title>
   
   
-  <meta name="description" content="Read a lot of paper.">
+  <meta name="description" content="">
   <meta name="author" content="Shujie Zhang">
   <meta name="keywords" content="Shujie Zhang, embodied AI, robotics, research, Tsinghua University">
   
@@ -18,7 +18,7 @@
   
   <link rel="stylesheet" href="http://localhost:1313//css/styles.css">
   
-  <link rel="stylesheet" href="../../styles.min.2961b4bd91f705fcd1f597500b03ba42d8272e376ecab7b5e4dc8610f427cf47.css">
+  <link rel="stylesheet" href="../../styles.min.4abdf335136582d0a14b70b59e475ec9be79083f158a8299a6be1f67441c57a7.css">
   
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
   integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -29,23 +29,118 @@
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
       },
       svg: {
         fontCache: 'global'
-      },
-      startup: {
-        pageReady: () => {
-          return window.MathJax.startup.defaultPageReady().then(() => {
-            console.log('MathJax loaded successfully');
-          });
-        }
       }
     };
   </script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script id="MathJax-script" async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <style>
+    .password-protection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f5f7fa 0%,#81b29a 100%);
+      border-radius: 15px;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .password-protection h2 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    
+    .password-protection p {
+      color: #34495e;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+    
+    .password-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .password-input {
+      padding: 12px 16px;
+      border: 2px solid #e0e6ed;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    
+    .password-input:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+    
+    .password-submit {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #faf9ec 0%, #f2cc8f 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .password-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .password-submit:active {
+      transform: translateY(0);
+    }
+    
+    .password-error {
+      color: #e74c3c;
+      margin-top: 1rem;
+      font-weight: 500;
+      display: none;
+    }
+    
+    .password-success {
+      color: #81b29a;
+      margin-top: 1rem;
+      font-weight: 500;
+      display: none;
+    }
+    
+    .content-hidden {
+      display: none;
+    }
+    
+    .content-visible {
+      display: block;
+    }
+    
+    .lock-icon {
+      font-size: 3rem;
+      color: #7f8c8d;
+      margin-bottom: 1rem;
+    }
+  </style>
   
   <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -83,6 +178,54 @@
         }
       });
     });
+    
+    
+    const passwordForm = document.querySelector('.password-form');
+    if (passwordForm) {
+      passwordForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const input = this.querySelector('.password-input');
+        const userAnswer = input.value.trim();
+        const correctAnswer = '';
+        const errorMsg = document.querySelector('.password-error');
+        const successMsg = document.querySelector('.password-success');
+        const content = document.querySelector('.diary-content');
+        const passwordProtection = document.querySelector('.password-protection');
+        
+        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+          
+          errorMsg.style.display = 'none';
+          successMsg.style.display = 'block';
+          successMsg.textContent = '密码正确！正在显示内容...';
+          
+          
+          setTimeout(() => {
+            passwordProtection.style.display = 'none';
+            content.classList.remove('content-hidden');
+            content.classList.add('content-visible');
+            
+            
+            const toc = document.querySelector('.diary-toc');
+            if (toc) {
+              toc.classList.remove('content-hidden');
+            }
+            
+            
+            if (window.MathJax) {
+              window.MathJax.typeset();
+            }
+          }, 1000);
+        } else {
+          
+          errorMsg.style.display = 'block';
+          errorMsg.textContent = '答案不正确，请重试';
+          input.value = '';
+          input.focus();
+        }
+      });
+    }
+    
+
     
     
     const tocItems = document.querySelectorAll('.toc-item');
@@ -148,13 +291,16 @@
     <div class="diary-layout">
       
       <main class="diary-single">
-        <article class="diary-content">
+        
+          
+          <article class="diary-content">
+        
           <header class="diary-header">
-            <h1 class="diary-title">week 1 summary</h1>
+            <h1 class="diary-title">Week_1</h1>
             <div class="diary-meta">
-              <time class="diary-date">2025-07-27</time>
+              <time class="diary-date">2025-08-25</time>
               
-                <span class="lastmod"> · Last updated: 2025-08-08</span>
+                <span class="lastmod"> · Last updated: 2025-08-27</span>
               
               
 
@@ -167,7 +313,7 @@
 
 <span class="reading-time">
   <i class="fas fa-clock"></i>
-  685 字 · 3 分钟
+  0 字 · 0 分钟
 </span> 
             </div>
           </header>
@@ -179,25 +325,15 @@
             
               
               
-                
-                <section id="section-1" class="content-section">
-                  <p>这周总结了agent相关的一些paper和概念，总结了上一段科研成果里了解到的3D scene synthesis的paper和套路（请允许我说是套路哈哈），get了VLA领域最近半年的基本情况（因为太能睡了，只仔细看了instructVLA），下周计划找mentor问下下一步要怎么focus到具体项目上，以及申请一张卡跑一些实验体会VLA不同action generation方法的区别。</p>
-<p>不得不说因为PMS头晕脑胀浪费了大量时间&hellip;来之前困，来之后也困，感觉脑子这半年通宵通坏了。真正的低精力人群，是每天除了睡觉，连玩游戏看小说都没精力的。我认为不是做事情本身难以开始，而是多个事情要兼顾（比如做饭，读paper，更网站，健身&hellip;）的能力被高中整退化了，做一个事情下意识扎进这个事做好久，导致不想开始。除了克服睡眠问题之外还要注意快速进入状态的能力和行动力呀。</p>
-<p>还有就是保研的事其实还没完，后面还要预推免走过场（我勒个1400来回高铁，没钱去迪士尼了）😓洒脱都是装出来的，现在仍然会时常后悔要是本科某次做选择的时候选什么什么就好了。为高中的时候拼命的自己而难过，老师和家长大言不惭地承诺考上了清北就会鹏程万里，然而滋养了家校的声誉和虚荣后，没有人关心我们下一步要怎么走。像是一只无根的浮萍，漂泊漂泊漂泊。</p>
-<p>人们总是以为没走的那条路上开满了鲜花。</p>
-<p>虽然不喜欢校园生活了，但总归还是幼稚的20岁，都读研了当然是跟着导师跑啦。毕业去向去上海没谁会care，咋读个研去上海这么多心理活动🤣。可能我在科研上收到足够的正反馈之前一直会这样难过，而在科研上收到正反馈又是何其可遇而不可求的事啊。埋头move on，交给时间吧。</p>
-<p>其实每天起来之后也不困，但如果没有咬牙起来就会一直睡一直睡😭我不会缺vd吧(补了一点之后感觉还真是)</p>
-<p>痛定思痛。下周要每天7点起来，早上9点到公司，打满11个小时卡，更完RL和teleoperation（然而其实没有更完而且开了更多坑&hellip;），并且focus到具体项目上。做不到就吃三天的鸡胸肉😠（其实只是想借机减脂）。</p>
-
-                </section>
-              
             
           </div>
         </article>
       </main>
       
       
-      <aside class="diary-toc">
+      
+        <aside class="diary-toc">
+      
         <div class="toc-container">
           <h3 class="toc-title">Content</h3>
           <nav class="toc-nav">
@@ -206,16 +342,6 @@
             
             
               
-              
-                
-                
-                
-                
-                  
-                  <a href="#section-1" class="toc-item">
-                    这周总结了agent相关的一些paper和概念，总结了上一段 …
-                  </a>
-                
               
             
           </nav>
